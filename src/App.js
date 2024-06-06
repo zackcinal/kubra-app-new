@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { verifyUser, getUser, signOut } from "./Services/users.js";
+import { verifyUser, signOut } from "./Services/users.js";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 import Dogs from "./Screens/Dogs/Dogs.jsx";
@@ -8,7 +8,6 @@ import Home from "./Screens/Home/Home.jsx";
 import Navbar from "./Components/Nav/Navbar.jsx";
 import SignIn from "./Screens/SignIn/SignIn.jsx";
 import SignUp from "./Screens/SignUp/SignUp.jsx";
-import Footer from "./Components/Footer/Footer.jsx";
 import EditDog from "./Components/EditDog/EditDog.jsx";
 import EditUser from "./Screens/EditUser/EditUser.jsx";
 import Signout from "./Screens/Signout/SignOut.jsx";
