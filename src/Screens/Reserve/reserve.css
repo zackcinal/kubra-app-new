@@ -1,0 +1,97 @@
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  background-color: rgb(37,52,75);
+}
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.reservation-form label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 3vh;
+}
+
+.reservation-form label input {
+  border: 1px solid black;
+  background: none;
+  height: 5vh;
+  border-radius: 8px;
+}
+
+.reservation-form button {
+  border: none;
+  height: 6vh;
+  width: 80vw;
+  background-color: rgb(37,52,75);
+  border-radius: 8px;
+  font-weight: 700;
+  color: white;
+}
+
+.timer-bar {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background-color: #e0e0e0;
+  margin-top: 10px;
+}
+
+.timer-bar-progress {
+  position: absolute;
+  height: 100%;
+  background-color: aliceblue;
+  transition: width 1s linear;
+}
+
+.upcoming-header {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.reservations-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 0;
+}
+
+.reservations-list-item {
+  height: 3vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: aliceblue;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-bottom: 1px;
+}
+
+.cancel-button {
+  border: none;
+  background: none;
+  color: red;
+}
+
+.calendar-container p {
+  font-weight: 700;
+  color: white;
+}
+
+.lottie svg {
+  margin-top: -10vh;
+}
+
+.nothing-to-see {
+  margin-bottom: 0;
+  text-align: center;
+}

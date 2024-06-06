@@ -1,0 +1,107 @@
+.user-info {
+  text-align: center;
+  margin-top: 5vh;
+  width: 95vw;
+  margin-left: 2.5vw;
+  background-color: rgb(37,52,75);
+  color: white;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.user-info h6 {
+  margin: 0;
+}
+
+.user-info h3 {
+  margin-bottom: 10px;
+}
+
+.information-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: -3vh;
+}
+
+.add-dog-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+.add-owner-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-dog-form button {
+  border: none;
+  height: 6vh;
+  width: 95vw;
+  background-color: rgb(84 110 150);
+  color: white;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.add-dog-form h3 {
+  margin-left: 5vw;
+  margin-top: 5vh;
+}
+
+.dog-info {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95vw;
+  margin-left: 2.5vw;
+  border-radius: 30px;
+  background-color: #e8ecf2;
+  height: 50vh;
+}
+
+.dog-info p {
+  margin: 10px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  display: flex;
+  align-self: flex-end;
+  padding: 5px;
+  margin-top: 3vh;
+  margin-right: 5vw;
+  border-bottom: 1px solid;
+}
+
+.delete-dog-button {
+  display: flex;
+  width: 50px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-owner-form button {
+  border: none;
+  height: 6vh;
+  width: 95vw;
+  background-color: rgb(84 110 150);
+  color: white;
+  border-radius: 8px;
+  font-weight: 700;
+}
