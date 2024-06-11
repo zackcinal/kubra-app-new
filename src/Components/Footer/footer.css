@@ -11,3 +11,12 @@
 .phone{
     margin-bottom: 0;
 }
+
+.footer-content h3 {
+    margin-top: 0;
+}
+
+.footer-content p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
