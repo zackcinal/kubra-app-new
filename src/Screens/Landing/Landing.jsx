@@ -1,24 +1,9 @@
 import React from "react";
-import { useEffect } from "react";
 import "./landing.css";
 import { Link } from "react-router-dom";
 
 function Landing() {
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
-  const handleScroll = () => {
-    const imageContainer = document.querySelector(".brand-logo");
-    if (window.scrollY > 10) {
-      imageContainer.classList.add("shrink");
-    } else {
-      imageContainer.classList.remove("shrink");
-    }
-  };
   return (
     <>
       <div className="logo">
