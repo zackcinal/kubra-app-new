@@ -15,6 +15,7 @@
   width: 80vw;
   outline: none;
   border-color: transparent;
+  font-size: 16px;
 }
 
 .signin-form button {
