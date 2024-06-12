@@ -84,7 +84,7 @@ function Reserve({ user }) {
 
       // Send email using EmailJS
       const templateParams = {
-        to_name: user.name,
+        to_name: user.first_name,
         reservation_date: form.reservationDate.toLocaleDateString(),
         reservation_type: form.reservationType,
       };
