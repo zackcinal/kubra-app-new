@@ -1,5 +1,4 @@
 .hi-there {
-  margin-top: 7vh;
   margin-left: 7vw;
   margin-bottom: 0;
   color: rgb(37, 52, 75)
@@ -10,7 +9,8 @@
   position: relative;
   overflow: hidden;
   display: inline-block;
-  color: rgb(37, 52, 75)
+  color: rgb(37, 52, 75);
+  margin-top: 0;
 }
 
 .welcome-to span {
@@ -58,7 +58,6 @@
   font-size: 1.4em;
   margin-left: 5vw;
   line-height: 1.7;
-  padding-top: 15px;
   position: relative;
 }
 

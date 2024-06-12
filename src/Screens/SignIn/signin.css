@@ -13,13 +13,15 @@
   background-color: transparent;
   height: 5vh;
   width: 80vw;
+  outline: none;
+  border-color: transparent;
 }
 
 .signin-form button {
   border: none;
   height: 6vh;
   width: 30vw;
-  background-color: rgb(37,52,75);
+  background-color: rgb(37, 52, 75);
   color: white;
   border-radius: 8px;
   font-weight: 700;
@@ -54,7 +56,7 @@
   border: none;
   height: 6vh;
   width: 30vw;
-  background-color: rgb(37,52,75);
+  background-color: rgb(37, 52, 75);
   color: white;
   border-radius: 8px;
   font-weight: 700;

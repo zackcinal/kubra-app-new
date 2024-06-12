@@ -17,6 +17,8 @@
   background-color: transparent;
   height: 3vh;
   width: 80vw;
+  outline: none;
+  border-color: transparent;
 }
 
 .home-form input + .focus-border {

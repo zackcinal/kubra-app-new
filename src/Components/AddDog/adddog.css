@@ -12,6 +12,8 @@
   background-color: transparent;
   height: 3vh;
   width: 80vw;
+  outline: none;
+  border-color: transparent;
 }
 
 .create-dog-form input + .focus-border {
