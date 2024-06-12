@@ -9,6 +9,7 @@ import {
 } from "../../Services/reservations.js";
 import Lottie from "lottie-react";
 import DogAnimation from "../../Assets/dog-animation.json";
+import emailjs from 'emailjs-com';
 
 const WALKS = [
   { value: "M", label: "Morning" },
@@ -80,6 +81,21 @@ function Reserve({ user }) {
         reservation_type: form.reservationType,
       };
       await makeReservation(reservationData);
+
+      // Send email using EmailJS
+      const templateParams = {
+        to_name: user.name,
+        reservation_date: form.reservationDate.toLocaleDateString(),
+        reservation_type: form.reservationType,
+      };
+
+      emailjs.send('service_2yo5wni', 'template_1jl9odl', templateParams, 'kubraatesusa@gmail.com')
+        .then((response) => {
+          console.log('Email sent successfully!', response.status, response.text);
+        }, (error) => {
+          console.error('Failed to send email', error);
+        });
+
       setForm({
         customer: user?.id,
         reservationDate: value,
@@ -120,6 +136,20 @@ function Reserve({ user }) {
     if (window.confirm("Are you sure you want to cancel your reservation?")) {
       try {
         await deleteReservation(reservationId);
+
+        // Send email using EmailJS
+        const templateParams = {
+          to_name: user.name,
+          reservation_id: reservationId,
+        };
+
+        emailjs.send('your_service_id', 'your_template_id', templateParams, 'your_user_id')
+          .then((response) => {
+            console.log('Cancellation email sent successfully!', response.status, response.text);
+          }, (error) => {
+            console.error('Failed to send cancellation email', error);
+          });
+
         setCancelMessage("Your reservation was cancelled successfully.");
         setCancelTimerProgress(100);
 
