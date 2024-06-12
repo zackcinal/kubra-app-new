@@ -143,7 +143,7 @@ function Reserve({ user }) {
           reservation_id: reservationId,
         };
 
-        emailjs.send('service_2yo5wni', 'template_3nufqhf', templateParams, 'vwExM1QWtRUVXrlqG')
+        emailjs.send('service_2yo5wni', 'template_fxww3oe', templateParams, 'vwExM1QWtRUVXrlqG')
           .then((response) => {
             console.log('Cancellation email sent successfully!', response.status, response.text);
           }, (error) => {
