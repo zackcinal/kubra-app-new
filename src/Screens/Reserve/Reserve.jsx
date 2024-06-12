@@ -89,7 +89,7 @@ function Reserve({ user }) {
         reservation_type: form.reservationType,
       };
 
-      emailjs.send('service_2yo5wni', 'template_1jl9odl', templateParams, 'kubraatesusa@gmail.com')
+      emailjs.send('service_2yo5wni', 'template_1jl9odl', templateParams, 'vwExM1QWtRUVXrlqG')
         .then((response) => {
           console.log('Email sent successfully!', response.status, response.text);
         }, (error) => {
