@@ -139,11 +139,11 @@ function Reserve({ user }) {
 
         // Send email using EmailJS
         const templateParams = {
-          to_name: user.name,
+          to_name: user.first_name,
           reservation_id: reservationId,
         };
 
-        emailjs.send('your_service_id', 'your_template_id', templateParams, 'your_user_id')
+        emailjs.send('service_2yo5wni', 'template_3nufqhf', templateParams, 'vwExM1QWtRUVXrlqG')
           .then((response) => {
             console.log('Cancellation email sent successfully!', response.status, response.text);
           }, (error) => {
