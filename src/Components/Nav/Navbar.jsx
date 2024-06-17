@@ -16,7 +16,7 @@ const Navbar = ({ user, handleLogout }) => {
   };
 
   return (
-    <div>
+    <div className="footer">
       <div
         className={`hamburger ${isOpen ? "open" : ""}`}
         onClick={toggleMenu}
