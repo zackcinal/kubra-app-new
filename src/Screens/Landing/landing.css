@@ -15,30 +15,18 @@
   font-size: larger;
 }
 
-.welcome-to span {
-  display: inline-block;
-  position: relative;
-  font-size: smaller;
-  padding: 7px;
+.reveal-text {
+  overflow: hidden;
+  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
+  animation: revealText 1s ease-in-out forwards;
 }
 
-.welcome-to span::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #c7d4c1;
-  z-index: -1;
-  animation: slide-in 1s ease forwards;
-  transform: translateX(-40%);
-  border-radius: 20px;
-}
-
-@keyframes slide-in {
+@keyframes revealText {
+  from {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  }
   to {
-    transform: translateX(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 

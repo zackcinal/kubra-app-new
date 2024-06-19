@@ -12,7 +12,7 @@ function Landing() {
       <div className="landing-main">
         <h1 className="hi-there">Hi there!</h1>
         <h1 className="welcome-to">
-          Welcome to
+          <span className="reveal-text">Welcome to</span>
           <br />
           Pet Care by Kubra & Zack!
         </h1>
