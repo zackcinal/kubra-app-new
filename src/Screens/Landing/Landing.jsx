@@ -9,17 +9,17 @@ function Landing() {
   const images = [
     {
       original: 'https://i.imgur.com/L1sZ41b.jpeg',
-      originalHeight: '100%',
+      originalHeight: '70%',
       originalWidth: '100vw'
     },
     {
       original: 'https://i.imgur.com/jcABApg.jpeg',
-      originalHeight: '100%',
+      originalHeight: '70%',
       originalWidth: '100vw'
     },
     // {
     //   original: 'https://i.imgur.com/RkNbhR0.jpeg',
-    //   originalHeight: '100%',
+    //   originalHeight: '70%',
     //   originalWidth: '70vw'
     // },
     {
@@ -30,7 +30,7 @@ function Landing() {
 
   class MyGallery extends React.Component {
     render() {
-      return <ImageGallery items={images} showBullets={false} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} autoPlay={true}/>;
+      return <ImageGallery items={images} showBullets={false} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} autoPlay={true} showNav={false}/>;
     }
   }
 
@@ -46,7 +46,6 @@ function Landing() {
           <span className="reveal-text">Pet Care by Kubra & Zack!</span>
         </h1>
       </div>
-      <MyGallery />
       <div className="buttons">
         <Link to="/signin">
           <button className="link-to-signin">Sign In</button>
@@ -55,6 +54,7 @@ function Landing() {
           <button className="link-to-signin">Join Now</button>
         </Link>
       </div>
+      <MyGallery />
     </>
   );
 }
