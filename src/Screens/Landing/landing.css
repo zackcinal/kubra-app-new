@@ -1,33 +1,22 @@
-.hi-there {
-  margin-left: 7vw;
-  margin-bottom: 0;
-  color: rgb(37, 52, 75);
-  font-size: larger;
+.landing-main {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  justify-content: center;
+  margin-top: 5vh;
 }
 
 .welcome-to {
   margin-left: 7vw;
-  position: relative;
-  overflow: hidden;
   display: inline-block;
   color: rgb(37, 52, 75);
   margin-top: 0;
   font-size: larger;
+  text-align: center;
 }
 
-.reveal-text {
-  overflow: hidden;
-  clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
-  animation: revealText 1s ease-in-out forwards;
-}
-
-@keyframes revealText {
-  from {
-    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-  }
-  to {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
+.image-gallery{
+  margin-bottom: 5vh;
 }
 
 .about-us {
