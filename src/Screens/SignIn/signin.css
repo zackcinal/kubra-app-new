@@ -1,9 +1,9 @@
 .signin-form {
-  margin-top: 15vh;
+  margin-top: 10vh;
   margin-left: 10vw;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .signin-form input {
