@@ -5,32 +5,37 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 function Landing() {
-
   const images = [
     {
-      original: 'https://i.imgur.com/L1sZ41b.jpeg',
-      originalHeight: '70%',
-      originalWidth: '100vw'
+      original: "https://i.imgur.com/L1sZ41b.jpeg",
+      originalHeight: "500vh",
+      originalWidth: "100vw",
     },
     {
-      original: 'https://i.imgur.com/jcABApg.jpeg',
-      originalHeight: '70%',
-      originalWidth: '100vw'
+      original: "https://i.imgur.com/jcABApg.jpeg",
+      originalHeight: "500vh",
+      originalWidth: "100vw",
     },
-    // {
-    //   original: 'https://i.imgur.com/RkNbhR0.jpeg',
-    //   originalHeight: '70%',
-    //   originalWidth: '70vw'
-    // },
     {
-      original: 'https://i.imgur.com/QM976FE.jpeg',
-      originalWidth: '100vw'
-    }
-  ]
+      original: "https://i.imgur.com/QM976FE.jpeg",
+      originalHeight: "500vh",
+      originalWidth: "100vw",
+    },
+  ];
 
   class MyGallery extends React.Component {
     render() {
-      return <ImageGallery items={images} showBullets={false} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} autoPlay={true} showNav={false}/>;
+      return (
+        <ImageGallery
+          items={images}
+          showBullets={false}
+          showThumbnails={false}
+          showFullscreenButton={false}
+          showPlayButton={false}
+          autoPlay={true}
+          showNav={false}
+        />
+      );
     }
   }
 
@@ -38,6 +43,9 @@ function Landing() {
     <>
       <div className="logo">
         <img src="https://i.imgur.com/yEUfhhW.png" className="logo-for-home" />
+      </div>
+      <div className="gallery">
+        <MyGallery />
       </div>
       <div className="landing-main">
         <h1 className="welcome-to">
@@ -54,15 +62,14 @@ function Landing() {
           <button className="link-to-signin">Join Now</button>
         </Link>
       </div>
-      <MyGallery />
     </>
   );
 }
 
 export default Landing;
 
-
-      {/* <div className="about-us">
+{
+  /* <div className="about-us">
         <h2 className="h2-about-us">About Us</h2>
         <p className="welcome-text">
           We, Kubra & Zack, are a married couple who love dogs and have turned
@@ -70,4 +77,5 @@ export default Landing;
           services in Downtown Jersey City for more than 2 years. Our services
           include daily walks and boardings.
         </p>
-      </div> */}
+      </div> */
+}
