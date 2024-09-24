@@ -6,9 +6,21 @@
   margin-top: 5vh;
 }
 
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .welcome-img {
   width: 70vw;
   margin-bottom: 5vh;
+  animation: fadeDown 0.5s ease-in-out forwards;
 }
 
 .buttons {
@@ -22,7 +34,7 @@
 .logo-text {
   text-align: center;
   margin-top: -5vh;
-  font-family: "Yeseva One", serif;
+  font-family: "Inria", serif;
   font-size: 20px;
   margin-bottom: 0;
 }
@@ -43,7 +55,7 @@
   color: black;
   border-radius: 8px;
   font-weight: 700;
-  font-family: "Yeseva One", serif;
+  font-family: "Inria", serif;
 }
 
 .gallery {
