@@ -2,7 +2,7 @@ import "./home.css";
 import { useState } from "react";
 import logo2 from "../../Assets/logo2.png";
 import { Link } from "react-router-dom";
-import Footer from "../../Components/Footer/Footer.jsx"
+import Footer from "../../Components/Footer/Footer.jsx";
 
 function Home({ user }) {
   const [value, onChange] = useState(new Date());
@@ -12,33 +12,21 @@ function Home({ user }) {
         <img src="https://i.imgur.com/LU2iCr6.png" className="logo-for-home" />
       </div>
       <div className="home-container">
-        <h1>Hello {user?.first_name}!</h1>
+        <h1 className="hello-user">
+          <span>Hello</span>
+          <span>{user?.first_name} </span>
+          <span>!</span>
+        </h1>
+        <div className="image-container">
+          <img
+            src="https://i.imgur.com/tV9JQi3.jpeg"
+            className="welcome-image"
+          />
+        </div>
         <h3>Need a walk soon?</h3>
         <Link to="/reserve">
           <button>Schedule Now</button>
         </Link>
-      </div>
-      <div className="images-container">
-        <img
-          src="https://i.imgur.com/u2fi4GF.png"
-          alt="Image"
-          className="image-container-images1"
-        />
-        <img
-          src="https://i.imgur.com/4ZU0Bv4.png"
-          alt="Image"
-          className="image-container-images2"
-        />
-        <img
-          src="https://i.imgur.com/HeWAiIe.png"
-          alt="Image"
-          className="image-container-images3"
-        />
-        <img
-          src="https://i.imgur.com/Iohduo6.png"
-          alt="Image"
-          className="image-container-images4"
-        />
       </div>
       <div className="instagram-container">
         <button className="button-to-instagram">

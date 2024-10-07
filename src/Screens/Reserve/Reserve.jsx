@@ -9,16 +9,17 @@ import {
 } from "../../Services/reservations.js";
 import Lottie from "lottie-react";
 import DogAnimation from "../../Assets/dog-animation.json";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 
 const WALKS = [
   { value: "M", label: "Morning" },
   { value: "L", label: "Lunch" },
   { value: "D", label: "Dinner" },
+  { value: "S", label: "Sitting" },
 ];
 
 function Reserve({ user }) {
-  const [value, onChange] = useState(new Date());
+  const [value, setValue] = useState([]); // Change to an array for multiple dates
   const [reservationType, setReservationType] = useState(WALKS[1].value); // Default to 'Lunch'
   const [message, setMessage] = useState("");
   const [timerProgress, setTimerProgress] = useState(0);
@@ -32,20 +33,6 @@ function Reserve({ user }) {
     }
   }, [user]);
 
-  useEffect(() => {
-    setForm((prevForm) => ({
-      ...prevForm,
-      reservationDate: value,
-    }));
-  }, [value]);
-
-  useEffect(() => {
-    setForm((prevForm) => ({
-      ...prevForm,
-      reservationType: reservationType,
-    }));
-  }, [reservationType]);
-
   const fetchUserReservations = async () => {
     try {
       const userReservations = await getUserReservations(user.id);
@@ -57,19 +44,27 @@ function Reserve({ user }) {
 
   const [form, setForm] = useState({
     customer: user?.id,
-    reservationDate: value,
+    reservationDates: [], // Update to array for multiple dates
     reservationType: WALKS[1].value, // Default to 'Lunch'
     isError: false,
     errorMsg: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const onChange = (date) => {
+    const dateString = date.toDateString();
+    if (value.find((d) => d.toDateString() === dateString)) {
+      setValue(value.filter((d) => d.toDateString() !== dateString));
+    } else {
+      setValue([...value, date]);
+    }
+  };
+
+  useEffect(() => {
     setForm((prevForm) => ({
       ...prevForm,
-      [name]: value,
+      reservationDates: value,
     }));
-  };
+  }, [value]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,7 +72,9 @@ function Reserve({ user }) {
     try {
       const reservationData = {
         customer: user.id,
-        reservation_date: form.reservationDate.toISOString().split("T")[0],
+        reservation_dates: value.map(
+          (date) => date.toISOString().split("T")[0]
+        ), // Send multiple dates
         reservation_type: form.reservationType,
       };
       await makeReservation(reservationData);
@@ -85,25 +82,41 @@ function Reserve({ user }) {
       // Send email using EmailJS
       const templateParams = {
         to_name: user.first_name,
-        reservation_date: form.reservationDate.toLocaleDateString(),
+        reservation_dates: value
+          .map((date) => date.toLocaleDateString())
+          .join(", "), // Format for email
         reservation_type: form.reservationType,
       };
 
-      emailjs.send('service_2yo5wni', 'template_1jl9odl', templateParams, 'vwExM1QWtRUVXrlqG')
-        .then((response) => {
-          console.log('Email sent successfully!', response.status, response.text);
-        }, (error) => {
-          console.error('Failed to send email', error);
-        });
+      emailjs
+        .send(
+          "service_2yo5wni",
+          "template_1jl9odl",
+          templateParams,
+          "vwExM1QWtRUVXrlqG"
+        )
+        .then(
+          (response) => {
+            console.log(
+              "Email sent successfully!",
+              response.status,
+              response.text
+            );
+          },
+          (error) => {
+            console.error("Failed to send email", error);
+          }
+        );
 
+      // Reset form after submission
       setForm({
         customer: user?.id,
-        reservationDate: value,
-        reservationType: WALKS[1].value, 
+        reservationDates: [],
+        reservationType: WALKS[1].value,
         isError: false,
         errorMsg: "",
       });
-      setReservationType(WALKS[1].value);
+      setValue([]); // Clear selected dates
       setMessage(
         "We have received your request. We will send you a confirmation message soon."
       );
@@ -140,15 +153,30 @@ function Reserve({ user }) {
         // Send email using EmailJS
         const templateParams = {
           to_name: user.first_name,
-          reservation_date: form.reservationDate.toLocaleDateString(),
+          reservation_dates: form.reservationDates
+            .map((date) => date.toLocaleDateString())
+            .join(", "),
         };
 
-        emailjs.send('service_2yo5wni', 'template_fxww3oe', templateParams, 'vwExM1QWtRUVXrlqG')
-          .then((response) => {
-            console.log('Cancellation email sent successfully!', response.status, response.text);
-          }, (error) => {
-            console.error('Failed to send cancellation email', error);
-          });
+        emailjs
+          .send(
+            "service_2yo5wni",
+            "template_fxww3oe",
+            templateParams,
+            "vwExM1QWtRUVXrlqG"
+          )
+          .then(
+            (response) => {
+              console.log(
+                "Cancellation email sent successfully!",
+                response.status,
+                response.text
+              );
+            },
+            (error) => {
+              console.error("Failed to send cancellation email", error);
+            }
+          );
 
         setCancelMessage("Your reservation was cancelled successfully.");
         setCancelTimerProgress(100);
@@ -175,13 +203,16 @@ function Reserve({ user }) {
   return (
     <div>
       <div className="calendar-container">
-        <Calendar onChange={onChange} value={value} />
+        <Calendar
+          onChange={onChange}
+          value={value}
+          selectRange={false} // Disable range selection
+        />
         <p>
-          {value.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
+          Selected Dates:{" "}
+          {value.length > 0
+            ? value.map((date) => date.toLocaleDateString()).join(", ")
+            : "None"}
         </p>
       </div>
       <div>
@@ -189,8 +220,10 @@ function Reserve({ user }) {
           <input type="hidden" name="customer" value={user?.id} />
           <input
             type="hidden"
-            name="reservationDate"
-            value={value.toISOString().split("T")[0]}
+            name="reservationDates"
+            value={value
+              .map((date) => date.toISOString().split("T")[0])
+              .join(", ")} // Send multiple dates as a string
           />
           <label>
             Reservation Type:
@@ -199,7 +232,7 @@ function Reserve({ user }) {
               value={reservationType}
               onChange={(e) => {
                 setReservationType(e.target.value);
-                handleChange(e);
+                // No need to call handleChange here
               }}
             >
               {WALKS.map((walk) => (
