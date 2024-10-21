@@ -1,6 +1,5 @@
 import "./home.css";
 import { useState } from "react";
-import logo2 from "../../Assets/logo2.png";
 import { Link } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer.jsx";
 
