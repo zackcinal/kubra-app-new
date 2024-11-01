@@ -8,7 +8,8 @@ function Home({ user }) {
   return (
     <div>
       <div className="logo">
-        <img src="https://i.imgur.com/LU2iCr6.png" className="logo-for-home" />
+        <p className="logo-text">Pet Care by Kubra & Zack</p>
+        <p className="logo-text-2">We are here for you...</p>
       </div>
       <div className="home-container">
         <h1 className="hello-user">
