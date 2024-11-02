@@ -2,61 +2,36 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
 }
+.home-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.box {
+  width: 190px;
+  height: 190px;
+  background-color: #125688;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-box {
+  width: 190px;
+  height: 190px;
+  background-color: #d5dfe7;
+}
+
+.box-h1 {
+  color: white;
+  font-size: 1.5em;
+}
 
 .logo {
   width: 100vw;
-}
-
-.logo-for-home {
-  width: 60vw;
-  right: 100px;
-  top: 0;
-  margin-top: -90px;
-  position: absolute;
-  z-index: -1;
-}
-
-.home-container {
-  margin-top: 5vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.home-container h1 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-}
-
-.welcome-image {
-  width: 70vw;
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-}
-
-.home-container h1,
-.home-container h3 {
-  margin-left: 4vw;
-  margin-right: 4vw;
-  margin-bottom: 0;
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-}
-
-.home-container a {
-  align-self: center;
-}
-
-.home-container a button {
-  border: none;
-  height: 6vh;
-  width: 45vw;
-  background-color: rgb(37, 52, 75);
-  color: white;
-  border-radius: 8px;
-  font-weight: 700;
 }
 
 .instagram-container {

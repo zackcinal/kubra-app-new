@@ -11,24 +11,24 @@ function Home({ user }) {
         <p className="logo-text">Pet Care by Kubra & Zack</p>
         <p className="logo-text-2">We are here for you...</p>
       </div>
-      <div className="home-container">
-        <h1 className="hello-user">
-          <span>Hello</span>
-          <span>{user?.first_name} </span>
-          <span>!</span>
-        </h1>
-        <div className="image-container">
-          <img
-            src="https://i.imgur.com/tV9JQi3.jpeg"
-            className="welcome-image"
-          />
+      <div className="home-box-container">
+        <div className="box">
+          <h1 className="box-h1">Profile</h1>
         </div>
-        <h3>Need a walk soon?</h3>
-        <Link to="/reserve">
-          <button>Schedule Now</button>
-        </Link>
+        <div className="empty-box"></div>
+        <div className="empty-box"></div>
+        <div className="box">
+          <h1 className="box-h1">Book a Walk</h1>
+        </div>
       </div>
-      <div className="instagram-container">
+    </div>
+  );
+}
+
+export default Home;
+
+{
+  /* <div className="instagram-container">
         <button className="button-to-instagram">
           <a
             href="https://www.instagram.com/petcarebykubra/"
@@ -49,12 +49,10 @@ function Home({ user }) {
             </p>
           </a>
         </button>
-      </div>
-      <div>
-        <Footer />
-      </div>
-    </div>
-  );
+      </div> */
 }
-
-export default Home;
+{
+  /* <div>
+  <Footer />
+</div>; */
+}
